@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(blob-scene-haikei\ \(1\).svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form {
+  position: relative;
+  border: none;
+  border-radius: 2vh;
+  box-shadow: 1vh 1vh 6vh black;
+  top: 10vh;
+  left: 20vw;
+  height: 75vh;
+  width: 65vw;
+  background-color: white;
+  overflow: hidden;
+}
+
+.signin {
+  position: absolute;
+  height: 100%;
+  width: 32.5vw;
+  top: -0;
+  left: 32.5vw;
+  border-top-right-radius: 2vh;
+  border-bottom-right-radius: 2vh;
+  background-color: #8caf25;
+}
+
+.text1 {
+  position: relative;
+  font-size: 55px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  top: 10vh;
+  left: 10vw;
+}
+
+p {
+  position: relative;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  top: 10vh;
+  left: 11vw;
+}
+
+input {
+  padding-left: 1vw;
+  padding-right: 1vw;
+  position: relative;
+  left: 6vw;
+  border: none;
+  margin-top: 3vh;
+  height: 6vh;
+  width: 19vw;
+  top: 10vh;
+  background-color: rgb(241, 236, 236);
+  font-family: "Poppins", sans-serif;
+}
+
+h3 {
+  position: relative;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 350;
+  top: 15vh;
+  left: 9vw;
+}
+
+.b1 {
+  position: relative;
+  top: 18vh;
+  left: 12vw;
+  background-color: #8caf25;
+  border: none;
+  height: 6.5vh;
+  width: 9vw;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 2vh;
+  color: white;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.b1:hover {
+  background-color: #2980b9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.text2 {
+  color: white;
+  position: relative;
+  font-size: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  top: 20vh;
+  left: 8vw;
+}
+
+.signin > p {
+  color: white;
+  position: relative;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  top: 22vh;
+  left: 6vw;
+}
+
+.b2 {
+  position: relative;
+  top: 25vh;
+  left: 12vw;
+  border: 2px solid white;
+  background-color:white;
+  height: 6.5vh;
+  width: 9vw;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 2vh;
+  color: #265a39;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.b2:hover {
+  background-color: #f7e733;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.text2 p{
+  margin-left: 40px;
+}
+.centered {
+  margin-left: 108px;
+}
+
