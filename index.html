@@ -5,18 +5,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="utility.css" />
-    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="icon" href="FavLogo.svg" type="image/x-icon" />
+    <title>Feelit - Music Player you always needed!</title>
+    
+    <style>
+      /* Reset CSS for a clean slate */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%; /* Full height for html and body */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+      }
+
+      /* Light Theme Background Animation */
+      body.light-theme {
+        position: relative;
+        min-height: 100vh; /* Ensure the body has full viewport height */
+      }
+
+      /* Background Style */
+      body.light-theme .background {
+        background: linear-gradient(132deg, #fc415a, #591bc5, #212335);
+        background-size: 400% 400%;
+        animation: Gradient 15s ease infinite;
+        position: fixed; /* Fixed to the viewport */
+        top: 0;
+        left: 0;
+        height: 100%; /* Full height */
+        width: 100%; /* Full width */
+        z-index: 1; /* Ensure background is behind content */
+      }
+
+      /* Cube Styles */
+      body.light-theme .cube {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border: solid 1px #d7d4e4;
+        transform-origin: top left;
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        animation: cube 12s ease-in forwards infinite;
+        z-index: 2; /* Above background but below main content */
+      }
+
+      /* Cube Animation Delay and Positioning */
+      body.light-theme .cube:nth-child(2n) {
+        border-color: #fff;
+      }
+
+      body.light-theme .cube:nth-child(2) {
+        animation-delay: 2s;
+        left: 25vw;
+        top: 40vh;
+      }
+
+      body.light-theme .cube:nth-child(3) {
+        animation-delay: 4s;
+        left: 75vw;
+        top: 50vh;
+      }
+
+      body.light-theme .cube:nth-child(4) {
+        animation-delay: 6s;
+        left: 90vw;
+        top: 10vh;
+      }
+
+      body.light-theme .cube:nth-child(5) {
+        animation-delay: 8s;
+        left: 10vw;
+        top: 85vh;
+      }
+
+      body.light-theme .cube:nth-child(6) {
+        animation-delay: 10s;
+        left: 50vw;
+        top: 10vh;
+      }
+
+      /* Content Layering */
+      .content {
+        position: relative;
+        z-index: 3; /* Ensure content is above the background */
+        padding: 20px; /* General padding for content */
+      }
+
+      .light-theme .left .library,
+      .light-theme .left .home,
+      .light-theme .right .header,
+      .light-theme .right h1,
+      .light-theme .cardContainer {
+        color: white;
+        background: transparent; /* Semi-transparent white background */
+        position: relative;
+        z-index: 3; /* Ensure content is above the background and cubes */
+        border-radius: 8px; /* Optional: round corners for aesthetics */
+      }
+
+      /* Add some padding for the header */
+
+      /* Animate Background */
+      @keyframes Gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Animate Cube */
+      @keyframes cube {
+        from {
+          transform: scale(0) rotate(0deg) translate(-50%, -50%);
+          opacity: 1;
+        }
+        to {
+          transform: scale(20) rotate(960deg) translate(-50%, -50%);
+          opacity: 0;
+        }
+      }
+    </style>
+
+    <style>
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Make the video fill the entire screen */
+      .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: 1; /* Behind the content */
+      }
+      .dark-theme .left .library {
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.6);
+      }
+      .dark-theme .left .home {
+        background: rgba(0, 0, 0, 0.6);
+        position: relative;
+        z-index: 2;
+      }
+      .dark-theme .right .header {
+        background: rgba(0, 0, 0, 0.6);
+        position: relative;
+        z-index: 2;
+      }
+      .dark-theme .right h1 {
+        background: rgba(0, 0, 0, 0.6);
+        position: relative;
+        z-index: 2;
+      }
+      .dark-theme .cardContainer {
+        background: rgba(0, 0, 0, 0.6);
+        position: relative;
+        z-index: 2;
+      }
+    </style>
   </head>
 
   <body>
-    <div class="container flex bg-black">
+    <video class="video-background" autoplay loop muted>
+      <source src="spacebg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="background">
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+    </div>
+
+    <div class="container flex">
       <div class="left">
         <div class="close">
           <img width="30" class="invert" src="close.svg" alt="" />
         </div>
         <div class="home bg-grey rounded m-1 p-1">
           <div class="logo">
-            <img width="110" class="invert" src="logo.svg" alt="" />
+            <img width="200" class="invert" src="Feelit.svg" alt="" />
           </div>
           <ul>
             <li><img class="invert" src="home.svg" alt="home" />Home</li>
@@ -143,12 +326,11 @@
           </div>
 
           <div class="buttons">
-            <button class="signupbtn"><a href="index1.html">Sign up</a></button>
             <button class="loginbtn"><a href="index1.html">Log in</a></button>
           </div>
         </div>
-        <div class="spotifyPlaylists">
-          <h1>Spotify Playlists</h1>
+        <div class="feelitPlaylists">
+          <h1>Feelit Playlists</h1>
           <div class="cardContainer">
             <div data.folder="ncs" class="card">
               <class class="image-wrapper">
@@ -368,16 +550,21 @@
             <div class="abovebar">
               <div class="songinfo"></div>
               <div class="songbuttons">
-                <img width="35" id="previous" src="prevsong.svg" alt="" />
-                <img width="35" id="play" src="play.svg" alt="" />
-                <img width="35" id="next" src="nextsong.svg" alt="" />
+                <img
+                  width="35"
+                  id="previous"
+                  src="prevsong.svg"
+                  alt="Previous Song"
+                />
+                <img width="35" id="play" src="play.svg" alt="Play" />
+                <img width="35" id="next" src="nextsong.svg" alt="Next Song" />
               </div>
               <div class="timevol">
                 <div class="songtime"></div>
                 <div class="volume">
-                  <img width="25" src="volume.svg" alt="" />
+                  <img width="25" src="volume.svg" alt="Volume" />
                   <div class="range">
-                    <input type="range" name="volume" id="" />
+                    <input type="range" name="volume" id="volume-control" />
                   </div>
                 </div>
               </div>
