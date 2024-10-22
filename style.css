@@ -43,19 +43,25 @@
     font-weight: bold
 }
 .light-theme .footer a{
+    display: flex;
+    font-size: 9.5px;
+    padding: 12px 0;
     color: white;
 }
 
 .dark-theme .footer{
     display: flex;
-    font-size: 10px;
+    font-size: 9.5px;
     color: grey;
     gap: 13px;
     position: absolute;
     bottom: 0;
-    padding: 10px 0;
+    padding: 12px 0;
 }
 
+.dark-theme .feelitPlaylists h1{
+    font-size: 3em;
+}
 
 
 .dark-theme .card {
@@ -74,7 +80,7 @@
 }
 
 .light-theme .toggle-button{
-    background-color: #55a0f1;
+    background-color: #7161EF;
 }
 
 .toggle-button {
@@ -147,24 +153,38 @@
 .light-theme .library::-webkit-scrollbar {
     width: 12px; 
 }
+.dark-theme .video-background-halloween{
+    display: none;
+}
+.light-theme .feelitPlaylists h1{
+    border-radius: 7px;
+    border: 2px solid white;
+    padding: 16px;
+    font-size: 3em;
+    font-weight: bold;
+}
 
 .light-theme .library::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #7161EF; 
+}
+
+.light-theme .video-background{
+    display: none;
 }
 
 .light-theme .library::-webkit-scrollbar-thumb {
-    background: #007bff; 
+    background: #f1f1f1; 
     border-radius: 6px; 
 }
 
 .light-theme .library::-webkit-scrollbar-thumb:hover {
-    background: #0056b3; 
+    background: #f1f1f1; 
 }
 
 
 .light-theme .library {
     scrollbar-width: thin; 
-    scrollbar-color: #ffffff #8EACCD; 
+    scrollbar-color:#7161EF #ffffff ; 
 }
 
 body.dark-theme {
@@ -178,10 +198,12 @@ body.dark-theme {
 
 .light-theme .cardContainer{
    max-height: 60vh;
+   z-index: 8;
+   background-color: white;
 }
 
 .light-theme .songList ul li{
-    background-color: #8EACCD;
+    background-color: transparent;
     border: 2px solid white;
     cursor: pointer;
 }
@@ -194,7 +216,7 @@ body.dark-theme {
     border: 2px solid white;
 }
 .light-theme .songList ul li:hover{
-    background-color: #5e93fb;
+    background-color: #2f71f5;
     cursor: pointer;
     --a: 1;
 }
@@ -270,12 +292,15 @@ body.dark-theme {
 
 
 .home ul li {
-    display: flex;
+    display: flex; /* Use flexbox for layout */
+    /* align-items: center; Center align items vertically */
     gap: 15px;
-    width: 14px;
+    width: 16px;
     list-style: none;
-    padding-top: 14px;
-    font-weight: bold;
+    padding-top: 14px; /* Add padding on top and bottom */
+    font-weight: bold; /* Bold text */
+    color: white; /* Set text color to white for contrast */
+    z-index: 2; /* Ensure it is above background */
 }
 
 .heading {
@@ -328,25 +353,33 @@ body.dark-theme {
     padding: 20px;
 }
 
-.spotifyPlaylists {
-    padding: 16px;
-}
-
-.spotifyPlaylists h1 {
+.feelitPlaylists h1 {
+    border-radius: 7px;
+    border: 2px solid white;
     padding: 16px;
 }
 
 .cardContainer {
     margin: 40px;
     display: flex;
-    gap: 10px;
+    gap: 30px;
     flex-wrap: wrap;
+    justify-content: center;
     overflow-y: auto;
-    max-height: 60vh; 
+    max-height: 60vh;
+    position: relative; /* Ensures proper stacking context above background */
+    z-index: 8; /* Ensures the cards appear above the animated background */
+    padding: 10px; /* Adds spacing inside the container */
+    background-color: #1e1e1e; /* Optional: Gives a semi-transparent dark background */
+    border-radius: 10px; /* Optional: Adds rounded corners */
 }
 
 .cardContainer::-webkit-scrollbar {
-    display: none; 
+    display: none; /* Hides the scrollbar */
+}
+
+.cardContainer {
+    scrollbar-width: none; /* For Firefox, hides the scrollbar */
 }
 
 .card {
@@ -355,16 +388,18 @@ body.dark-theme {
     border-radius: 5px;
     background-color: #121212;
     position: relative;
-    transition: all .5s;
+    transition: all 0.5s;
+    overflow: hidden; /* Prevents any content from spilling out */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Adds shadow for better visibility */
 }
-.card:hover{
+
+.card:hover {
     background-color: #252525;
     cursor: pointer;
     --a: 1;
-}
-
-.card>* {
-    padding-top: 10px;
 }
 
 .card img {
@@ -372,13 +407,13 @@ body.dark-theme {
     object-fit: contain;
 }
 
-.card p{
-    color:#848282 ;
+.card p {
+    color: #848282;
     font-size: small;
     font-weight: 600;
 }
 
-.play {
+.card .play {
     width: 28px;
     height: 28px;
     background-color: #1fdf64;
@@ -393,19 +428,22 @@ body.dark-theme {
     bottom: -10px; 
     right: -8%;
     transform: translateX(-50%);
-  }
+}
 
-  .image-wrapper {
+.card .image-wrapper {
     position: relative;
     width: 100%;
-    overflow: hidden; 
-  }
-  
-  .card:hover .play {
+    overflow: hidden; /* Ensures content doesn't overflow */
+}
+
+.card:hover .play {
     bottom: 10px; 
-    opacity: 1; 
-  }
-  
+    opacity: 1; /* Makes the play button visible on hover */
+}
+
+.card p {
+    padding-top: 10px;
+}
 .buttons>* {
     margin: 0 12px;
 }
@@ -454,12 +492,14 @@ body.dark-theme {
     position: fixed;
     bottom: 30px;
     filter: invert(1);
-    background: #e2d9d9;
+    right: 39px;
+    background: #fcb4b4;
     border-radius: 10px;
     width: 90%;
     padding: 12px;
     width: 70vw;
     min-height: 40px;
+    z-index: 10;
 }
 
 .songbuttons {
@@ -719,4 +759,12 @@ body.dark-theme {
 .dark-theme .artist-info {
     font-size: 0.9rem; 
     color: #e0209b;
+}
+
+.logo img{
+    position: relative;
+    margin: -14px;
+    top: 6px;
+    left: -21px;
+    position: relative;
 }
